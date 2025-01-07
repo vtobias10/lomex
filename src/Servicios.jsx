@@ -25,7 +25,7 @@ const Servicios = () => {
     <div className="py-16 px-4 bg-gray-50 mt-12">
       {/* Título de la sección */}
       <div className="text-center">
-        <h2 className="text-4xl font-bold text-black">SERVICIOS</h2>
+        <h2 className="text-4xl font-bold text-black mb-8">SERVICIOS</h2>
       </div>
 
       {/* Grid para los servicios, 7 servicios por fila */}

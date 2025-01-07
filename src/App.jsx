@@ -1,6 +1,6 @@
 // src/App.jsx
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-scroll'; // Importar react-scroll
 import Navbar from './Navbar';
 import Nosotros from './Nosotros';
 import Servicios from './Servicios';
@@ -10,17 +10,52 @@ import Contacto from './Contacto';
 import Footer from './Footer';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [scrolling, setScrolling] = useState(false);
+
+  // Detectar el scroll y mostrar el botón cuando sea necesario
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setScrolling(true); // Mostrar el botón
+      } else {
+        setScrolling(false); // Ocultar el botón
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
       <Navbar />
-      <Nosotros />
-      <Servicios />
-      <Clientes />
-      <Proveedores />
-      <Contacto />
+      <div id="nosotros">
+        <Nosotros />
+      </div>
+      <div id="servicios">
+        <Servicios />
+      </div>
+      <div id="clientes">
+        <Clientes />
+      </div>
+      <div id="proveedores">
+        <Proveedores />
+      </div>
+      <div id="contacto">
+        <Contacto />
+      </div>
       <Footer />
+
+      {/* Botón flotante para volver arriba */}
+      <Link
+        to="nosotros" // Este es el ID al que queremos desplazarnos
+        smooth={true}
+        duration={500} // Tiempo de la animación de desplazamiento
+        className={`scroll-top-button ${scrolling ? 'show' : ''}`} // Añadir la clase "show" cuando sea necesario
+      >
+        ↑
+      </Link>
     </>
   );
 }

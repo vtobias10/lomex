@@ -8,7 +8,7 @@ const Proveedores = () => {
       
       {/* Título */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-black">Proveedores</h2>
+        <h2 className="text-3xl font-bold text-black mt-12">Proveedores</h2>
       </div>
 
       {/* Descripción */}

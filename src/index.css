@@ -6,3 +6,85 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-prev,
+.slick-next {
+  font-size: 24px;
+  background-color: #000;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+  position: absolute;
+  top: 100%;  /* Mueve las flechas debajo del carrusel */
+  transform: translateY(20px);  /* Espacio adicional debajo del carrusel */
+}
+
+/* Efecto de hundir y fondo negro cuando se hace clic */
+.slick-prev:active,
+.slick-next:active {
+  transform: translateY(25px);  /* "Hundimiento" de la flecha */
+  background-color: #000 !important;  /* Fondo negro al hacer clic */
+}
+
+/* Persistir el fondo negro cuando se hace clic y se mantiene activo */
+.slick-prev:focus,
+.slick-next:focus {
+  background-color: #000 !important;  /* Mantiene el fondo negro cuando el botón está en foco */
+}
+
+/* Estilo específico para la flecha 'prev' (izquierda) */
+.slick-prev {
+  left: 10px;  /* Ajusta la flecha izquierda */
+}
+
+/* Estilo específico para la flecha 'next' (derecha) */
+.slick-next {
+  right: 10px;  /* Ajusta la flecha derecha */
+}
+
+/* Estilo para el botón flotante */
+/* Estilo para el botón flotante */
+.scroll-top-button {
+    position: fixed;
+    bottom: 8%;
+    right: 8%;
+    background-color: #000;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* El botón empieza invisible */
+    transform: translateY(30px); /* El botón empieza más abajo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Transición más lenta */
+    z-index: 1000;
+    width: 50px; /* Ancho fijo */
+    height: 50px; /* Alto fijo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor a puntero */
+    font-weight: bold;
+  }
+  
+  /* Cuando el botón debe aparecer, la opacidad es 1 y el desplazamiento es 0 */
+  .scroll-top-button.show {
+    opacity: 1;  /* El botón se hace visible */
+    transform: translateY(0); /* El botón sube a su posición */
+  }
+  
+  /* Estilo para el hover */
+  .scroll-top-button:hover {
+    background-color: #555; /* Color de fondo al pasar el ratón */
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+  }
+  
+  /* Estilo para el foco (si se hace clic en el botón) */
+  .scroll-top-button:focus {
+    outline: none; /* Eliminar el contorno por defecto */
+  }
+  

@@ -24,8 +24,12 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">Administración Central</h3>
               <p>Fermín Cariola 1838</p>
               <p>T4107CSL | Yerba Buena | Tucumán</p>
-              <p>T. +54 381 484-8058</p>
-              <p>info@lomex.com.ar</p>
+              <p>
+                <a href="tel:+543814848058" className="text-blue-600">T. +54 381 484-8058</a>
+              </p>
+              <p>
+                <a href="mailto:info@lomex.com.ar" className="text-blue-600">info@lomex.com.ar</a>
+              </p>
             </div>
 
             {/* Información PLOT - Parque Logístico Tucumán */}
@@ -33,8 +37,12 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">PLOT - Parque Logístico Tucumán</h3>
               <p>Av. Circunvalación Ruta Nacional 38 Km 2</p>
               <p>4000 | San Miguel de Tucumán | Tucumán</p>
-              <p>T. +54 381 201-5156</p>
-              <p>plot@lomex.com.ar</p>
+              <p>
+                <a href="tel:+543812015156" className="text-blue-600">T. +54 381 201-5156</a>
+              </p>
+              <p>
+                <a href="mailto:plot@lomex.com.ar" className="text-blue-600">plot@lomex.com.ar</a>
+              </p>
             </div>
 
             {/* Información Sucursal CABA */}
@@ -43,8 +51,12 @@ const Footer = () => {
               <p>Jerónimo Salguero 3451</p>
               <p>Depósito Ledesma Retiro Norte</p>
               <p>C1425DFF | Ciudad Autónoma de Buenos Aires</p>
-              <p>T. +54 11 2558-5159</p>
-              <p>caba@lomex.com.ar</p>
+              <p>
+                <a href="tel:+541125585159" className="text-blue-600">T. +54 11 2558-5159</a>
+              </p>
+              <p>
+                <a href="mailto:caba@lomex.com.ar" className="text-blue-600">caba@lomex.com.ar</a>
+              </p>
             </div>
 
             {/* Información Sucursal Ledesma */}
@@ -52,8 +64,12 @@ const Footer = () => {
               <h3 className="text-lg font-semibold mb-2">Sucursal Ledesma</h3>
               <p>Av. Soberanía Nacional y Ruta 34</p>
               <p>Y4512HMN | Ledesma | Jujuy</p>
-              <p>T. +54 3886 43-0234</p>
-              <p>ledesma@lomex.com.ar</p>
+              <p>
+                <a href="tel:+543886430234" className="text-blue-600">T. +54 3886 43-0234</a>
+              </p>
+              <p>
+                <a href="mailto:ledesma@lomex.com.ar" className="text-blue-600">ledesma@lomex.com.ar</a>
+              </p>
             </div>
           </div>
         </div>
