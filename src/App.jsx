@@ -8,6 +8,7 @@ import Clientes from './Clientes';
 import Proveedores from './Proveedores';
 import Contacto from './Contacto';
 import Footer from './Footer';
+import HeroImage from './HeroImage';  // Importamos el componente HeroImage
 
 function App() {
   const [scrolling, setScrolling] = useState(false);
@@ -29,7 +30,12 @@ function App() {
 
   return (
     <>
+      {/* HeroImage está encima de todo */}
+      <HeroImage />
+
+      {/* Navbar sin espacio entre la imagen */}
       <Navbar />
+
       <div id="nosotros">
         <Nosotros />
       </div>

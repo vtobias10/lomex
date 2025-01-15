@@ -1,3 +1,4 @@
+// src/Navbar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-scroll'; // Importar el componente Link de react-scroll
 
@@ -9,7 +10,7 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false); // Función para cerrar el menú al hacer clic en un botón
 
   return (
-    <nav className="bg-black text-white p-4 fixed top-0 left-0 right-0 z-10 shadow-md">
+    <nav className="bg-black text-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-lg font-semibold">
