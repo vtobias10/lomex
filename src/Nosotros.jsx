@@ -4,10 +4,10 @@ import React from 'react';
 
 const Nosotros = () => {
   return (
-    <div className="py-16 px-4 bg-gray-50 mt-12">
+    <div id="nosotros-titulo" className="py-16 px-4 bg-gray-50 mt-12">
       {/* Título principal */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-black">Somos LOMEX</h2>
+        <h2  className="text-4xl font-bold text-black">Somos LOMEX</h2>
         <p className="text-xl text-gray-600">Servicio de Transporte y Logística</p>
       </div>
 

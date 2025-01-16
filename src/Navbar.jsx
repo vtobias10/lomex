@@ -1,30 +1,37 @@
 // src/Navbar.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-scroll'; // Importar el componente Link de react-scroll
+import { Link } from 'react-scroll';
 
-const Navbar = () => {
+const Navbar = ({ isFixed, navbarHeight }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
-  const closeMenu = () => setIsOpen(false); // Función para cerrar el menú al hacer clic en un botón
+  // Estilo para dispositivos móviles
+  const mobileStyle = 'fixed top-0 left-0 w-full z-50';
 
   return (
-    <nav className="bg-black text-white p-4 shadow-md">
+    <nav
+      id="navbar"
+      className={`bg-white text-[#04294b] p-4 shadow-md transition-all duration-500 ease-in-out
+        ${window.innerWidth <= 768 ? mobileStyle : ''}
+        ${isFixed ? 'fixed top-0 left-0 w-full z-50' : 'top-0'}`}
+    >
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
         <div className="text-lg font-semibold">
-          <a href="#">Lomex</a>
+          <a href="#">Lomex S.A</a>
         </div>
 
-        {/* Menu */}
-        <div className="hidden lg:flex space-x-8 items-center ml-auto"> {/* Asegura que los botones estén alineados a la derecha */}
+        <div className="hidden lg:flex space-x-8 items-center ml-auto">
           <span>
             <Link
-              to="nosotros"
+              to="nosotros-titulo" // Ahora apunta al id del título en "Nosotros"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer"
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer"
+              activeClass="text-[#deb44a]" // Color activo
+              spy={true}
             >
               Nosotros
             </Link>
@@ -34,7 +41,9 @@ const Navbar = () => {
               to="servicios"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer"
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer"
+              activeClass="text-[#deb44a]" // Color activo
+              spy={true}
             >
               Servicios
             </Link>
@@ -44,7 +53,9 @@ const Navbar = () => {
               to="clientes"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer"
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer"
+              activeClass="text-[#deb44a]" // Color activo
+              spy={true}
             >
               Clientes
             </Link>
@@ -54,7 +65,9 @@ const Navbar = () => {
               to="proveedores"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer"
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer"
+              activeClass="text-[#deb44a]" // Color activo
+              spy={true}
             >
               Proveedores
             </Link>
@@ -64,16 +77,17 @@ const Navbar = () => {
               to="contacto"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer"
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer"
+              activeClass="text-[#deb44a]" // Color activo
+              spy={true}
             >
               Contacto
             </Link>
           </span>
         </div>
 
-        {/* Mobile menu */}
         <div className="block lg:hidden">
-          <button onClick={toggleMenu} className="text-white">
+          <button onClick={toggleMenu} className="text-[#04294b]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -91,19 +105,20 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile menu (desplegable) */}
         <div
-          className={`lg:hidden space-y-4 absolute top-16 left-0 w-full bg-black transition-all duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
+          className={`lg:hidden space-y-4 absolute top-16 left-0 w-full bg-white transition-all duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
         >
           <span>
             <Link
-              to="nosotros"
+              to="nosotros-titulo" // Ahora apunta al id del título en "Nosotros"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer block px-4 py-2"
-              onClick={closeMenu} // Cerrar el menú al hacer clic
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer block px-4 py-2"
+              onClick={closeMenu}
+              activeClass="text-[#deb44a]"
+              spy={true}
             >
-              Nosotros
+              NOSOTROS
             </Link>
           </span>
           <span>
@@ -111,10 +126,12 @@ const Navbar = () => {
               to="servicios"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer block px-4 py-2"
-              onClick={closeMenu} // Cerrar el menú al hacer clic
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer block px-4 py-2"
+              onClick={closeMenu}
+              activeClass="text-[#deb44a]"
+              spy={true}
             >
-              Servicios
+              SERVICIOS
             </Link>
           </span>
           <span>
@@ -122,10 +139,12 @@ const Navbar = () => {
               to="clientes"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer block px-4 py-2"
-              onClick={closeMenu} // Cerrar el menú al hacer clic
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer block px-4 py-2"
+              onClick={closeMenu}
+              activeClass="text-[#deb44a]"
+              spy={true}
             >
-              Clientes
+              CLIENTES
             </Link>
           </span>
           <span>
@@ -133,10 +152,12 @@ const Navbar = () => {
               to="proveedores"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer block px-4 py-2"
-              onClick={closeMenu} // Cerrar el menú al hacer clic
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer block px-4 py-2"
+              onClick={closeMenu}
+              activeClass="text-[#deb44a]"
+              spy={true}
             >
-              Proveedores
+              PROVEEDORES
             </Link>
           </span>
           <span>
@@ -144,10 +165,12 @@ const Navbar = () => {
               to="contacto"
               smooth={true}
               duration={500}
-              className="hover:text-gray-400 cursor-pointer block px-4 py-2"
-              onClick={closeMenu} // Cerrar el menú al hacer clic
+              className="uppercase font-bold text-[#04294b] hover:text-[#deb44a] cursor-pointer block px-4 py-2"
+              onClick={closeMenu}
+              activeClass="text-[#deb44a]"
+              spy={true}
             >
-              Contacto
+              CONTACTO
             </Link>
           </span>
         </div>

@@ -55,11 +55,11 @@ const Contacto = () => {
   };
 
   return (
-    <div className="py-16 px-4 bg-gray-50 mt-12">
+    <div className="py-16 px-4" style={{ backgroundColor: '#00a0d6' }}>
       {/* Título */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-black">Contacto</h2>
-        <p className="text-lg text-gray-600">Por favor, completa el siguiente formulario y nos pondremos en contacto contigo.</p>
+        <h2 className="text-3xl font-bold text-white">Contacto</h2>
+        <p className="text-lg text-white">Por favor, completa el siguiente formulario y nos pondremos en contacto contigo.</p>
       </div>
 
       {/* Formulario */}

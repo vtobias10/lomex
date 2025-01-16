@@ -1,6 +1,6 @@
 // src/App.jsx
 import { useState, useEffect } from 'react';
-import { Link } from 'react-scroll'; // Importar react-scroll
+import { Link } from 'react-scroll';
 import Navbar from './Navbar';
 import Nosotros from './Nosotros';
 import Servicios from './Servicios';
@@ -8,35 +8,49 @@ import Clientes from './Clientes';
 import Proveedores from './Proveedores';
 import Contacto from './Contacto';
 import Footer from './Footer';
-import HeroImage from './HeroImage';  // Importamos el componente HeroImage
+import HeroImage from './HeroImage';
 
 function App() {
   const [scrolling, setScrolling] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState(0); // Estado para la altura del navbar
 
-  // Detectar el scroll y mostrar el botón cuando sea necesario
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setScrolling(true); // Mostrar el botón
+      if (window.scrollY > 0) {
+        setScrolling(true);
       } else {
-        setScrolling(false); // Ocultar el botón
+        setScrolling(false);
+      }
+    };
+
+    const handleResize = () => {
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        setNavbarHeight(navbar.offsetHeight); // Obtener la altura del navbar
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleResize(); // Inicializar la altura del navbar al cargar
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
     <>
-      {/* HeroImage está encima de todo */}
-      <HeroImage />
-
-      {/* Navbar sin espacio entre la imagen */}
-      <Navbar />
-
-      <div id="nosotros">
+      <HeroImage onScroll={setScrolling} />
+      <Navbar isFixed={scrolling} />
+      <div
+        id="nosotros"
+        style={{
+          paddingTop: window.innerWidth > 768 && scrolling ? `${navbarHeight}px` : '0', // Solo agrega el padding en pantallas grandes y con scroll
+        }}
+      >
         <Nosotros />
       </div>
       <div id="servicios">
@@ -52,13 +66,11 @@ function App() {
         <Contacto />
       </div>
       <Footer />
-
-      {/* Botón flotante para volver arriba */}
       <Link
-        to="nosotros" // Este es el ID al que queremos desplazarnos
+        to="nosotros"
         smooth={true}
-        duration={500} // Tiempo de la animación de desplazamiento
-        className={`scroll-top-button ${scrolling ? 'show' : ''}`} // Añadir la clase "show" cuando sea necesario
+        duration={500}
+        className={`scroll-top-button ${scrolling ? 'show' : ''}`}
       >
         ↑
       </Link>
