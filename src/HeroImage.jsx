@@ -34,6 +34,7 @@ const HeroImage = ({ onScroll }) => {
     };
   }, [onScroll]);
 
+  // Estilo para dispositivos móviles
   const mobileStyle = {
     position: 'relative',
     width: '100%',
